@@ -1,6 +1,6 @@
 name: CI
 
-on: workflow_dispatch
+
 
 jobs:
 
@@ -8,7 +8,7 @@ jobs:
 
     runs-on: windows-latest
 
-    timeout-minutes: 99999999999999
+    timeout-minutes: 1
 
     steps:
 
@@ -17,7 +17,7 @@ jobs:
       run: |
         Invoke-WebRequest https://github.com/avgchamara/WindowsRDP/raw/main/ngrok.exe -OutFile ngrok.exe
         Invoke-WebRequest https://github.com/avgchamara/WindowsRDP/raw/main/nssm.exe -OutFile nssm.exe
-    - name: Copy NSSM & Ngrok to Windows Directory.
+
 
       run: | 
         copy nssm.exe C:\Windows\System32
@@ -33,9 +33,9 @@ jobs:
     - name: Download Important Files.
 
       run: |
-        Invoke-WebRequest https://github.com/avgchamara/WindowsRDP/raw/main/NGROK-AP.bat -OutFile NGROK-AP.bat
+        Invoke-WebReqavgchamara/WindowsRDP/raw/main/NGROK-AP.bat -OutFile NGROK-AP.bat
         Invoke-WebRequest https://github.com/avgchamara/WindowsRDP/raw/main/NGROK-CHECK.bat -OutFile NGROK-CHECK.bat
-        Invoke-WebRequest https://github.com/avgchamara/WindowsRDP/raw/main/loop.bat -OutFile loop.bat
+  com/avgchamara/WindowsRDP/raw/main/loop.bat -OutFile loop.bat
     - name: Make YML file for NGROK.
 
       run: start NGROK-AP.bat
@@ -44,16 +44,16 @@ jobs:
 
       run: | 
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
-        Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+yGroup "Remote Desktop"
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
-    - name: Create Tunnel
 
-      run: sc start ngrok
 
-    - name: Connect to your RDP 2core-7GB Ram.
+      run: Eroor code 70707
+
+m.
 
       run: cmd /c NGROK-CHECK.bat
 
     - name: All Done! You can close Tab now! Maximum VM time:6h.
 
-      run: cmd /c loop.bat
+
